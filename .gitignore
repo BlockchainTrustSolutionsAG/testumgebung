@@ -3,6 +3,7 @@
 
 # dependencies
 **/node_modules
+truffle/build
 
 # IDE
 /.idea

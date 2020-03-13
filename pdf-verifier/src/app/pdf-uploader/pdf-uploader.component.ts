@@ -1,18 +1,20 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { utils } from 'ethers';
 import { ViewChild } from '@angular/core';
+import { PdfVerifierService } from '../services/pdf-verifier.service';
 
 @Component({
   selector: 'app-pdf-uploader',
   templateUrl: './pdf-uploader.component.html',
-  styleUrls: ['./pdf-uploader.component.scss']
+  styleUrls: ['./pdf-uploader.component.scss'],
+  providers: [PdfVerifierService]
 })
 export class PdfUploaderComponent implements OnInit {
 
   @ViewChild('fileChooser', { static: false })
   chooser: ElementRef;
 
-  constructor() { }
+  constructor(private verifierService: PdfVerifierService) { }
 
   private file;
   private supported;
@@ -35,13 +37,14 @@ export class PdfUploaderComponent implements OnInit {
     } else {
       const fileReader = new FileReader();
       fileReader.readAsText(this.file);
-      fileReader.onloadend = (evt) => {
+      fileReader.onloadend = async (evt) => {
         // @ts-ignore
         if (evt.target.readyState === FileReader.DONE) {
           // @ts-ignore
           const decoded = utils.id(evt.target.result);
-          console.log('Decoded: ' + decoded);
           this.resetFile();
+          this.errorMessage = 'Lädt...';
+          this.errorMessage = await this.verifierService.upload(decoded);
         }
       };
     }
