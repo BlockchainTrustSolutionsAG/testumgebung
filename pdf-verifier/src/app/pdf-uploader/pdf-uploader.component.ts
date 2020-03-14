@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { utils } from 'ethers';
+import { utils} from 'ethers';
 import { ViewChild } from '@angular/core';
 import { PdfVerifierService } from '../services/pdf-verifier.service';
 
@@ -18,7 +18,8 @@ export class PdfUploaderComponent implements OnInit {
 
   private file;
   private supported;
-  public errorMessage;
+  public infoMessage;
+  public loading;
 
   ngOnInit() {
     // @ts-ignore
@@ -28,12 +29,15 @@ export class PdfUploaderComponent implements OnInit {
   }
 
   public upload() {
+    if (this.loading) {
+      return;
+    }
     if (!this.file) {
-      this.errorMessage = 'Bitte wähle eine Datei aus';
+      this.infoMessage = 'Bitte wähle eine Datei aus';
     } else if (this.file.type !== 'application/pdf') {
-      this.errorMessage = 'Dies ist kein gültiges Dateiformat';
+      this.infoMessage = 'Dies ist kein gültiges Dateiformat';
     } else if (!this.supported) {
-      this.errorMessage = 'Dein Browser unterstützt kein Dateiupload';
+      this.infoMessage = 'Dein Browser unterstützt kein Dateiupload';
     } else {
       const fileReader = new FileReader();
       fileReader.readAsText(this.file);
@@ -41,10 +45,12 @@ export class PdfUploaderComponent implements OnInit {
         // @ts-ignore
         if (evt.target.readyState === FileReader.DONE) {
           // @ts-ignore
-          const decoded = utils.id(evt.target.result);
+          const encoded = utils.id(evt.target.result);
           this.resetFile();
-          this.errorMessage = 'Lädt...';
-          this.errorMessage = await this.verifierService.upload(decoded);
+          this.infoMessage = 'Lädt...';
+          this.loading = true;
+          this.infoMessage = await this.verifierService.upload(encoded);
+          this.loading = false;
         }
       };
     }
@@ -56,7 +62,7 @@ export class PdfUploaderComponent implements OnInit {
   }
 
   public fileChange($event: Event) {
-    this.errorMessage = '';
+    this.infoMessage = '';
     // @ts-ignore
     this.file = $event.target.files[0];
   }

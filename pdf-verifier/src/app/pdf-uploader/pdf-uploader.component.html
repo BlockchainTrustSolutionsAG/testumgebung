@@ -4,13 +4,13 @@
       <h5 class="card-title">Datei hochladen</h5>
       <div class="dropzone">
         <i class="fa fa-5x fa-upload"></i>
-        <input type="file" #fileChooser accept="application/pdf" class="chooser" (change)="fileChange($event)">
-        <div *ngIf="file; else elseBlock"><p class="info">{{this.file.name}}</p></div>
+        <input [attr.disabled]="this.loading" type="file" #fileChooser accept="application/pdf" class="chooser" (change)="fileChange($event)">
+        <div *ngIf="this.file; else elseBlock"><p class="info">{{this.file.name}}</p></div>
         <ng-template #elseBlock><p class="info">Klicke oder Drag and Drop zum Wählen</p></ng-template>
       </div>
-      <button (click)="upload()" type="submit" class="btn btn-primary btn-sm">PDF hochladen</button>
-      <ng-container *ngIf="errorMessage">
-        <p class="info">{{this.errorMessage}}</p>
+      <button [ngClass]="{'disabled':this.loading}" (click)="upload()" type="submit" class="btn btn-primary btn-sm">PDF hochladen</button>
+      <ng-container *ngIf="this.infoMessage">
+        <p class="info">{{this.infoMessage}}</p>
       </ng-container>
     </div>
   </div>
