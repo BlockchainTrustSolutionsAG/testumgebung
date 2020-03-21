@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-file-input',
@@ -10,7 +10,7 @@ export class FileInputComponent implements OnInit {
   @ViewChild('fileChooser', { static: false })
   chooser: ElementRef;
 
-  @Input() public title = 'Datei hochladen';
+  @Input() public title;
   @Input() public buttonDesc: string;
   @Input() public loading: boolean;
   @Input() public infoMessage: string;

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FileUploadPageComponent } from './file-upload-page.component';
+import { FileInputComponent } from '../../components/file-input/file-input.component';
+import { FormsModule } from '@angular/forms';
 
 describe('FileUploadPageComponent', () => {
   let component: FileUploadPageComponent;
@@ -8,7 +10,8 @@ describe('FileUploadPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FileUploadPageComponent ]
+      imports: [ FormsModule ],
+      declarations: [ FileUploadPageComponent, FileInputComponent ]
     })
     .compileComponents();
   }));

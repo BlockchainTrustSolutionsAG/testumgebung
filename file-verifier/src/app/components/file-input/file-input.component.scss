@@ -1,20 +1,11 @@
-@import "../../styles";
+@import "src/styles";
 
 .full-width {
   width: 100%;
 }
 
-.container {
-  margin-top: 50px;
-  margin-bottom: 20px;
-}
-
 .last-row {
   margin-bottom: 0;
-}
-
-.file-info {
-  text-align: left;
 }
 
 .card-header {
@@ -52,10 +43,6 @@
     margin-top: 20px;
     color: $primary-text-color;
   }
-}
-
-.uploadPanel {
-  margin-bottom: 20px;
 }
 
 .info {

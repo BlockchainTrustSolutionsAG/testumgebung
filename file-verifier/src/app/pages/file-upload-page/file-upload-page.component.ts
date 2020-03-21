@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {utils} from 'ethers';
-import {FileInputComponent} from '../file-input/file-input.component';
-import {FileVerifierService} from '../services/file-verifier.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { utils } from 'ethers';
+import { FileInputComponent } from '../../components/file-input/file-input.component';
+import { FileVerifierService } from '../../services/file-verifier.service';
 
 @Component({
   selector: 'app-file-upload-page',

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminViewComponent } from './admin-view.component';
+import { FileVerifyPageComponent } from './file-verify-page.component';
 
-describe('AdminViewComponent', () => {
-  let component: AdminViewComponent;
-  let fixture: ComponentFixture<AdminViewComponent>;
+describe('FileVerifyPageComponent', () => {
+  let component: FileVerifyPageComponent;
+  let fixture: ComponentFixture<FileVerifyPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminViewComponent ]
+      declarations: [ FileVerifyPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminViewComponent);
+    fixture = TestBed.createComponent(FileVerifyPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

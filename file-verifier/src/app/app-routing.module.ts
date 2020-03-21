@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FileUploaderComponent } from './file-uploader/file-uploader.component';
-import { AdminViewComponent } from './admin-view/admin-view.component';
-import {FileUploadPageComponent} from './file-upload-page/file-upload-page.component';
+import { FileUploadPageComponent } from './pages/file-upload-page/file-upload-page.component';
+import { FileVerifyPageComponent } from './pages/file-verify-page/file-verify-page.component';
 
 
 const routes: Routes = [
-  { path: 'admin', component: FileUploadPageComponent },
-  { path: 'election', component: FileUploaderComponent },
-  { path: 'upload', component: FileUploaderComponent },
+  { path: 'verify', component: FileVerifyPageComponent },
+  { path: 'upload', component: FileUploadPageComponent },
   { path: '', redirectTo: '/upload', pathMatch: 'full' }
 ];
 
