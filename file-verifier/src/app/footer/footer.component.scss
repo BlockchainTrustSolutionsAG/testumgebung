@@ -1,0 +1,13 @@
+@import "../../styles";
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  color: $primary-text-color;
+  font-size: 15px;
+  border-top: 1px solid rgba(128,128,128,0.13);
+  padding-top: 10px;
+  padding-bottom: 5px;
+}

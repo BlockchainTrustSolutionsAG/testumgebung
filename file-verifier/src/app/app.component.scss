@@ -1,0 +1,11 @@
+@import "../styles";
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.content {
+  padding-bottom: $footer-height;
+}

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Datei hochladen</h5>
+          <div class="dropzone">
+            <i class="fa fa-5x fa-upload"></i>
+            <input [attr.disabled]="this.loading ? '' : null" type="file" #fileChooser class="chooser" (change)="fileChange($event)">
+            <div *ngIf="this.file; else elseBlock"><p>{{this.file.name}}</p></div>
+            <ng-template #elseBlock><p>Klicke oder Drag and Drop zum Wählen</p></ng-template>
+          </div>
+          <div class="form-group row">
+            <div class="col-12">
+              <input [attr.disable]="'true'" [(ngModel)]="this.name" type="text" class="form-control" id="inputName" placeholder="Name">
+            </div>
+          </div>
+          <div class="form-group row last-row">
+            <div class="col-12">
+              <button [ngClass]="{'disabled':this.loading}" (click)="upload()" type="submit" class="btn btn-primary btn-sm full-width">Datei hochladen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="info">{{this.infoMessage}}</p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <span>Bei dieser Datei handelt es sich um ein Orignal</span>
+          <i class="fa fa-1x fa-check tick"></i>
+        </div>
+        <div class="card-body file-info">
+          <p>Datei-Hash:</p>
+          <p class="last-row">Upload-Datum:</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

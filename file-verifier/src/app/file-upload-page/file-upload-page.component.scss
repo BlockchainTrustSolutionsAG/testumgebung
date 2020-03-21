@@ -1,0 +1,27 @@
+.container {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.last-row {
+  margin-bottom: 0;
+}
+
+.file-info {
+  text-align: left;
+}
+
+.uploadPanel {
+  margin-bottom: 20px;
+}
+
+.card-header {
+  text-align: left;
+  background-color: rgba(123, 199, 0, 0.3);
+
+  i {
+    float: right;
+    color: green;
+    font-size: 25px;
+  }
+}

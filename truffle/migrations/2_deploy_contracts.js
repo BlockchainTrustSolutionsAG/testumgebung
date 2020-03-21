@@ -1,5 +1,5 @@
-const PdfVerifier = artifacts.require('./PdfVerifier.sol');
+const FileVerifier = artifacts.require('./FileVerifier.sol');
 
 module.exports = function(deployer) {
-    deployer.deploy(PdfVerifier);
+    deployer.deploy(FileVerifier);
 };
