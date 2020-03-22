@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FileInputComponent } from './components/file-input/file-input.component';
 import { FileUploadPageComponent } from './pages/file-upload-page/file-upload-page.component';
 import { FileVerifyPageComponent } from './pages/file-verify-page/file-verify-page.component';
+import { FileInformationComponent } from './components/file-information/file-information.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FileVerifyPageComponent } from './pages/file-verify-page/file-verify-pa
     FooterComponent,
     FileInputComponent,
     FileUploadPageComponent,
-    FileVerifyPageComponent
+    FileVerifyPageComponent,
+    FileInformationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+  <div class="col-lg-8 col-md-10 col-sm-12">
+    <div class="card">
+      <div [ngClass]="{'success':valid}" class="card-header">
+        <span>{{this.valid ? this.validMessage : this.invalidMessage}}</span>
+        <i [ngClass]="valid ? 'fa-check' : 'fa-time-circle'" class="fa fa-1x pull-right"></i>
+      </div>
+      <div class="card-body file-info">
+        <ng-container *ngFor="let info of this.infos; index as i; last as isLast">
+          <div [ngClass]="{'last-row':isLast}" class="form-group row">
+            <label for="static{{i}}" class="col-sm-4 col-form-label">{{info.key}}</label>
+            <div class="col-sm-8">
+              <input type="text" readonly class="form-control-plaintext" id="static{{i}}" value="{{info.value}}">
+            </div>
+          </div>
+          <hr *ngIf="!isLast" />
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

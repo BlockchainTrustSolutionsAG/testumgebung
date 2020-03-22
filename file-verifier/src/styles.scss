@@ -1,2 +1,11 @@
 $primary-text-color: gray;
 $footer-height: 2.5rem;
+
+.container:not(.navbar) {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.last-row {
+  margin-bottom: 0;
+}

@@ -27,26 +27,16 @@ export class FileVerifierService {
     }
   }
 
-  public async getEvents(event: string): Promise<object> {
-    const parser = new ethers.utils.Interface(FileVerifierContract.ABI);
+  public async verify(fileHash, nameHash) {
     const provider = new ethers.providers.JsonRpcProvider(FileVerifierService.URL);
-    const uploads = [];
-    await provider.getLogs({ fromBlock: 0, address: FileVerifierContract.ADDRESS }).then((received) => {
-      received.forEach(async (log) => {
-        const date = await provider.getBlock(log.blockHash).then((block) => {
-          return new Date(block.timestamp * 1000);
-        });
-        const parsed = parser.parseLog(log);
-        if (parsed.name === event) {
-          const result = {
-            values: parsed.values,
-            timestamp: date
-          };
-          uploads.push(result);
-        }
-      });
-    });
-    return uploads;
+    const unsignedContract = new ethers.Contract(FileVerifierContract.ADDRESS, FileVerifierContract.ABI, provider);
+    let result;
+    if (!nameHash) {
+      result = await unsignedContract.isFileUploaded(fileHash);
+    } else {
+      result = await unsignedContract.isFileWithNameUploaded(fileHash, nameHash);
+    }
+    return result;
   }
 
   public async upload(fileHash, nameHash): Promise<VerifierResponse> {

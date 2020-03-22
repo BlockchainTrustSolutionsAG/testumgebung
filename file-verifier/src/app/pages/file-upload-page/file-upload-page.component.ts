@@ -38,12 +38,12 @@ export class FileUploadPageComponent implements OnInit {
       fileReader.onloadend = async (evt) => {
         // @ts-ignore
         if (evt.target.readyState === FileReader.DONE) {
+          this.loading = true;
+          this.infoMessage = 'Lädt...';
           // @ts-ignore
           const encoded = utils.id(evt.target.result);
           const encodedName = utils.id(this.chooser.name);
           this.chooser.resetFile();
-          this.infoMessage = 'Lädt...';
-          this.loading = true;
           this.infoMessage = await this.verifierService.upload(encoded, encodedName);
           this.loading = false;
         }

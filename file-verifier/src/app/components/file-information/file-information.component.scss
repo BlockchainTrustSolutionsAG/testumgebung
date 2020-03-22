@@ -1,0 +1,21 @@
+.file-info {
+  text-align: left;
+}
+
+.card-header {
+  text-align: left;
+  background-color: rgba(199, 5, 0, 0.3);
+
+  i.pull-right{
+    margin-right: 0;
+    float: right;
+    color: #801400;
+  }
+}
+
+.card-header.success {
+  background-color: rgba(123, 199, 0, 0.3);
+  i.pull-right{
+    color: green;
+  }
+}
