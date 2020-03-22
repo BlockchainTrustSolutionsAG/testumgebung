@@ -72,42 +72,6 @@ export class FileValidatorContract {
         },
         {
             constant: true,
-            inputs: [
-                {
-                    internalType: 'uint256',
-                    name: '',
-                    type: 'uint256'
-                }
-            ],
-            name: 'entries',
-            outputs: [
-                {
-                    internalType: 'bytes32',
-                    name: 'fileHash',
-                    type: 'bytes32'
-                },
-                {
-                    internalType: 'bytes32',
-                    name: 'nameHash',
-                    type: 'bytes32'
-                },
-                {
-                    internalType: 'address',
-                    name: 'from',
-                    type: 'address'
-                },
-                {
-                    internalType: 'uint256',
-                    name: 'timestamp',
-                    type: 'uint256'
-                }
-            ],
-            payable: false,
-            stateMutability: 'view',
-            type: 'function'
-        },
-        {
-            constant: true,
             inputs: [],
             name: 'getEntriesCount',
             outputs: [
@@ -246,6 +210,6 @@ export class FileValidatorContract {
         }
     ];
 
-    public static ADDRESS = '0xd0041156B04e98bb17dEC09a7849B7A7Fc5588E0';
+    public static ADDRESS = '0x04F3B6457c46Ac8500f17E8ea3B1D1768d0e47BE';
     // '0x0f9B9d0E9964f54C997d4Ac815355D834585460d'; change while testing
 }
