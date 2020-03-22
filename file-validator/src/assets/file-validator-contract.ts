@@ -212,4 +212,5 @@ export class FileValidatorContract {
 
     public static ADDRESS = '0x04F3B6457c46Ac8500f17E8ea3B1D1768d0e47BE';
     // '0x0f9B9d0E9964f54C997d4Ac815355D834585460d'; change while testing
+    // '0x171b624554389d5Bf68c54B69F93DaaAe9550753'
 }
