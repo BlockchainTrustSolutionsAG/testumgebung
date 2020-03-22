@@ -1,5 +1,5 @@
-const FileVerifier = artifacts.require('./FileVerifier.sol');
+const FileValidator = artifacts.require('./FileValidator.sol');
 
 module.exports = function(deployer) {
-    deployer.deploy(FileVerifier);
+    deployer.deploy(FileValidator);
 };
