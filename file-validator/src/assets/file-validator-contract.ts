@@ -246,5 +246,6 @@ export class FileValidatorContract {
         }
     ];
 
-    public static ADDRESS = '0x87fD946ec94acAEB5D84F45401A1E17a9B18F5Da'; // change while testing
+    public static ADDRESS = '0xd0041156B04e98bb17dEC09a7849B7A7Fc5588E0';
+    // '0x0f9B9d0E9964f54C997d4Ac815355D834585460d'; change while testing
 }

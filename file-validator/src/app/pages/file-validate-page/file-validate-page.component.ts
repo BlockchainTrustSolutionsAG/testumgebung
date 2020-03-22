@@ -45,26 +45,30 @@ export class FileValidatePageComponent implements OnInit {
           const encoded = utils.id(evt.target.result);
           const encodedName = this.chooser.name ? utils.id(this.chooser.name) : null;
           const res = await this.validatorService.validate(encoded, encodedName);
-          this.valid = res[0];
-          if (this.valid) {
-            this.result = [{
-              key: 'Zeitpunkt des Uploads:',
-              value: Utils.formatDate(new Date(res[1] * 1000))
-            }];
+          if(res != null) {
+            this.valid = res[0];
+            if (this.valid) {
+              this.result = [{
+                key: 'Zeitpunkt des Uploads:',
+                value: Utils.formatDate(new Date(res[1] * 1000))
+              }];
+            } else {
+              this.result = [{
+                key: 'Dateiname:',
+                value: this.chooser.file.name
+              }];
+            }
+            if (this.chooser.name) {
+              this.result.push({
+                key: 'Ersteller:',
+                value: this.chooser.name
+              });
+            }
+            this.validationPanel = true;
+            this.infoMessage = '';
           } else {
-             this.result = [{
-              key: 'Dateiname:',
-              value: this.chooser.file.name
-            }];
+            this.infoMessage = 'Mit falscher Blockchain verbunden';
           }
-          if (this.chooser.name) {
-            this.result.push({
-              key: 'Ersteller:',
-              value: this.chooser.name
-            });
-          }
-          this.validationPanel = true;
-          this.infoMessage = '';
         } else {
           this.infoMessage = 'Fehler beim Lesen der Datei';
         }

@@ -3,7 +3,7 @@ pragma solidity ^0.5.16;
 contract FileValidator {
 
     constructor() public {
-        entries.push(Entry(0, 0, address(0), 0));
+        entries.push(Entry("", "", address(0), 0));
     }
 
     string public name = 'File Validator';
@@ -24,7 +24,7 @@ contract FileValidator {
         uint256 _timestamp
     );
 
-    Entry[] public entries;
+    Entry[] internal entries;
     mapping (bytes32 => uint256) fileHashMapping;
 
     function addEntry(bytes32 _fileHash, bytes32 _nameHash) external returns (uint256) {

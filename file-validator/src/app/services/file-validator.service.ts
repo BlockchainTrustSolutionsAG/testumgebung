@@ -8,7 +8,7 @@ import { ValidateResponse } from './validate-response.enum';
 })
 export class FileValidatorService {
 
-  private static URL = 'http://127.0.0.1:7545';
+  private static URL = 'http://localhost:7545'; // https://rpc.bluchain.pro
 
   public loading: boolean;
 
@@ -30,15 +30,19 @@ export class FileValidatorService {
   }
 
   public async validate(fileHash, nameHash) {
-    const provider = new ethers.providers.JsonRpcProvider(FileValidatorService.URL);
-    const unsignedContract = new ethers.Contract(FileValidatorContract.ADDRESS, FileValidatorContract.ABI, provider);
-    let result;
-    if (!nameHash) {
-      result = await unsignedContract.isFileUploaded(fileHash);
-    } else {
-      result = await unsignedContract.isFileWithNameUploaded(fileHash, nameHash);
+    let result = null;
+    try {
+      const provider = new ethers.providers.JsonRpcProvider(FileValidatorService.URL);
+      const unsignedContract = new ethers.Contract(FileValidatorContract.ADDRESS, FileValidatorContract.ABI, provider);
+      if (!nameHash) {
+        result = await unsignedContract.isFileUploaded(fileHash);
+      } else {
+        result = await unsignedContract.isFileWithNameUploaded(fileHash, nameHash);
+      }
+      return result;
+    } catch (exception) {
+      return result;
     }
-    return result;
   }
 
   public async upload(fileHash, nameHash): Promise<ValidateResponse> {
