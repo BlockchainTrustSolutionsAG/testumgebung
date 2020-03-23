@@ -20,7 +20,7 @@ export class FileValidatePageComponent implements OnInit {
   public result;
   public valid: boolean;
 
-  constructor(private validatorService: FileValidatorService) { }
+  constructor(public validatorService: FileValidatorService) { }
 
   ngOnInit() {
   }

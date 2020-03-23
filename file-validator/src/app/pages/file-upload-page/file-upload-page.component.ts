@@ -16,7 +16,7 @@ export class FileUploadPageComponent implements OnInit {
   public uploadFile = 'Datei hochladen';
   public infoMessage: string;
 
-  constructor(private validatorService: FileValidatorService) { }
+  constructor(public validatorService: FileValidatorService) { }
 
   ngOnInit() {
   }

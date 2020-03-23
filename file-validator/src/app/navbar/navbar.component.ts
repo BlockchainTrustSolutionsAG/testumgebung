@@ -8,7 +8,7 @@ import { FileValidatorService } from '../services/file-validator.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private validatorService: FileValidatorService) { }
+  constructor(public validatorService: FileValidatorService) { }
 
   ngOnInit() {
   }

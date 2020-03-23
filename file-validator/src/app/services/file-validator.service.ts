@@ -8,7 +8,7 @@ import { ValidateResponse } from './validate-response.enum';
 })
 export class FileValidatorService {
 
-  private static URL = 'http://localhost:7545'; // https://rpc.bluchain.pro
+  private static URL = 'https://rpc.bluchain.pro';
 
   public loading: boolean;
 

@@ -28,9 +28,11 @@ Run `ng serve` inside `path_to_workspace/file-validator/file-validator` for a de
 
 In order to (re)migrate the smart contract to the local blockchain use `truffle migrate --reset`. Don't forget to change the address of the smart contract in the `assets/file-validator-contract.ts` file.
 
-## Build
+## Build/Deploy
 
-Run `ng build` inside `path_to_workspace/file-validator/file-validator` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` inside `path_to_workspace/file-validator/file-validator` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build. 
+
+In order to deploy a Smart Contract use Byzantinium EVM version while compiling. Current solidity version is `0.5.16`.
 
 ## Running Unit Tests
 
